@@ -1,0 +1,437 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+// Main App
+Widget MyApp() {
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text('FUN QUIZ'),
+        backgroundColor: Color.fromARGB(255, 228, 231, 31),
+      ),
+      backgroundColor: Color.fromARGB(255, 131, 131, 131), // Set background color to grey
+      body: Center(
+        child: ButtonColumn(), // Call functional widget to render buttons
+      ),
+    ),
+  );
+}
+
+// Function to navigate to the quiz screen
+void onButtonPressed(String buttonName, BuildContext context) {
+  if (buttonName == 'History') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HistoryQuizScreen()), // Navigate to History Quiz
+    );
+  } else if (buttonName == 'Bollywood') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => BollywoodQuizScreen()), // Navigate to Bollywood Quiz
+    );
+  } else if (buttonName == 'General Knowledge') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => GKQuizScreen()), // Navigate to General Knowledge Quiz
+    );
+  } else if (buttonName == 'Maths') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MathsQuizScreen()), // Navigate to Maths Quiz
+    );
+  }
+}
+
+// Functional widget to create buttons
+Widget ButtonColumn() {
+  return Builder(
+    builder: (context) => Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ElevatedButton(
+          onPressed: () => onButtonPressed('History', context), // Handle button press for History
+          child: Text('History'),
+          style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20), // Increase padding
+            textStyle: TextStyle(fontSize: 18), // Increase text size
+          ),
+        ),
+        SizedBox(height: 16), // Space between buttons
+        ElevatedButton(
+          onPressed: () => onButtonPressed('Bollywood', context),
+          child: Text('Bollywood'),
+          style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20), // Increase padding
+            textStyle: TextStyle(fontSize: 18), // Increase text size
+          ),
+        ),
+        SizedBox(height: 16), // Space between buttons
+        ElevatedButton(
+          onPressed: () => onButtonPressed('General Knowledge', context),
+          child: Text('General Knowledge'),
+          style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20), // Increase padding
+            textStyle: TextStyle(fontSize: 18), // Increase text size
+          ),
+        ),
+        SizedBox(height: 16), // Space between buttons
+        ElevatedButton(
+          onPressed: () => onButtonPressed('Maths', context),
+          child: Text('Maths'),
+          style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20), // Increase padding
+            textStyle: TextStyle(fontSize: 18), // Increase text size
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+// History Quiz Screen with four questions
+Widget HistoryQuizScreen() {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('History Quiz'),
+      backgroundColor: Colors.orange,
+    ),
+    backgroundColor: Colors.grey[200],
+    body: Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            '1. Who was the first president of the India?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Jawaharlal Nehru'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Dr Rajendra Prasad'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Sardar Vallabhai Patel'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '2. In which year did World War II end?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1945'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1939'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1918'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '3. When India got independence?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1943'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1941'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1947'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '4. When did the French Revolution start?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1789'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1812'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1914'),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+// Bollywood Quiz Screen with four questions
+Widget BollywoodQuizScreen() {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('Bollywood Quiz'),
+      backgroundColor: Colors.orange,
+    ),
+    backgroundColor: Colors.grey[200],
+    body: Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            '1. Who is known as the "King of Bollywood"?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Shah Rukh Khan'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Amitabh Bachchan'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Salman Khan'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '2. Who was the first Indian to win an Oscar?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Bhanu Athaiya'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Satyajit Ray'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('A. R. Rahman'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '3. Which movie had the famous dialogue "Mogambo khush hua"?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Mr. India'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Sholay'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Deewar'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '4. Which Bollywood film was India\'s official entry to the Oscars in 2001?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Lagaan'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Mother India'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Salaam Bombay'),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+// General Knowledge Quiz Screen with four questions
+Widget GKQuizScreen() {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('General Knowledge Quiz'),
+      backgroundColor: Colors.orange,
+    ),
+    backgroundColor: Colors.grey[200],
+    body: Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            '1. Who is the current President of the United States?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Joe Biden'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Donald Trump'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Barack Obama'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '2. What is the capital city of Australia?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Canberra'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Sydney'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Melbourne'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '3. Which planet is known as the Red Planet?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Mars'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Venus'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Jupiter'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '4. Who wrote the national anthem of India?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Rabindranath Tagore'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Bankim Chandra Chatterjee'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Sarojini Naidu'),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+// Mathematics Quiz Screen with four questions
+Widget MathsQuizScreen() {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('Mathematics Quiz'),
+      backgroundColor: Colors.orange,
+    ),
+    backgroundColor: Colors.grey[200],
+    body: Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            '1. What is 9 + 10?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('19'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('21'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('18'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '2. What is the square root of 16?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('4'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('8'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('2'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '3. Solve: 12 ÷ 4 = ?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('3'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('6'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('4'),
+          ),
+          SizedBox(height: 20),
+          Text(
+            '4. What is the value of Pi?',
+            style: TextStyle(fontSize: 20),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('3.14159'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('2.71828'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('1.61803'),
+          ),
+        ],
+      ),
+    ),
+  );
+}
